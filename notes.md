@@ -26,7 +26,7 @@ catch (Exception e)
 - `System.ArgumentNullException` - an argument was null when it shouldn't have been 
 - `System.ArgumentOutOfRangeException`
 - `System.IO.FileNotFoundException`
-- `System.InvalidOperationException` - when  you're trying to perform an operation on some object and that operation isn't valid given the current state of that object
+- `System.InvalidOperationException` - when you're trying to perform an operation on some object and that operation isn't valid given the current state of that object
 
 
 
