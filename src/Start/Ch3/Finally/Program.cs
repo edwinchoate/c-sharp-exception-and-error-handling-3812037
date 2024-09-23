@@ -8,7 +8,7 @@ try {
     Console.WriteLine($"Result: {IntDivider(10,1)}");
 
     // Indexing an array out of bounds is also an exception
-    Console.WriteLine($"Value at index is {nums[5]}");
+    Console.WriteLine($"Value at index is {nums[115]}");
 }
 catch (DivideByZeroException e) {
     Console.WriteLine($"Divide by zero!");
@@ -16,7 +16,10 @@ catch (DivideByZeroException e) {
 catch (IndexOutOfRangeException e) {
     Console.WriteLine($"Index out of range!");
 }
-
+finally 
+{
+    Console.WriteLine("This code always runs.");
+}
 
 // A funtion that divides two integers
 int IntDivider(int a, int b) {
