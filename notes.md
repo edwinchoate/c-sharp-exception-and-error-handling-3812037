@@ -51,3 +51,23 @@ _exception filtering_ - a given `catch` block only runs if an associated boolean
 ```C#
 catch (Exception e) when (myBool) 
 ```
+
+### Custom Exceptions
+
+When creating custom exceptions in C# (e.g. creating a class that extends `System.Exception`), it's best-practice to create a few constructors...
+
+1. The parameterless constructor
+```C#
+public MyException () : base ()
+```
+
+2. A constructor that takes a `string` arg (the message)
+```C#
+public MyException (string message) : base (message) 
+```
+
+3. A constructor that takes a `string` arg and an inner exception object 
+```C#
+public MyException (string message, Exception innerException) : base (message, innerException) 
+```
+
