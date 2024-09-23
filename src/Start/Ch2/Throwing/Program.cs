@@ -22,6 +22,10 @@ public class MyOven
     public void SetOvenTemp(int TemperatureF)
     {
         // Make sure that the argument is between 100 and 500
+        if (TemperatureF < 100 || TemperatureF > 500) {
+            throw new ArgumentOutOfRangeException("TemperatureF", TemperatureF, "Temperature must be between 100F and 500F.");
+        }
+
         OvenTemp = TemperatureF;
     }
 

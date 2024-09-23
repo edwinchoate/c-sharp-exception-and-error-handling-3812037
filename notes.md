@@ -41,3 +41,5 @@ catch (Exception e)
 
 > It is generally the best practice to use the most specific exception class possible that meets your program's needs in order to keep your code simple and avoid having many different exception types being caught by your catch statements. 
 
+If you put your generic exceptions before a more specific exception, the compiler with throw an error because that makes the latter exceptions unreachable. 
+
