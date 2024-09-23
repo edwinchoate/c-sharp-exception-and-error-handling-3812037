@@ -8,7 +8,7 @@ The most generic exception - [`System.Exception`](https://learn.microsoft.com/en
 
 `e.Message`
 
-```
+```C#
 catch (Exception e)
     Console.WriteLine(e.Message);
 ```
@@ -46,3 +46,8 @@ If you put your generic exceptions before a more specific exception, the compile
 
 ## Chapter 3
 
+_exception filtering_ - a given `catch` block only runs if an associated boolean evaluates to true
+
+```C#
+catch (Exception e) when (myBool) 
+```
