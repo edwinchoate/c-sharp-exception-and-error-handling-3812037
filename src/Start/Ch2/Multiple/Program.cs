@@ -10,7 +10,10 @@ try {
     // Indexing an array out of bounds is also an exception
     Console.WriteLine($"{nums[15]}");
 }
-catch (Exception e) {
+catch (DivideByZeroException e) {
+    Console.WriteLine($"{e.Message}");
+}
+catch (IndexOutOfRangeException e) {
     Console.WriteLine($"{e.Message}");
 }
 
