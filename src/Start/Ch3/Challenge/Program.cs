@@ -35,6 +35,7 @@ Counter.ListBadCoins();
 public class CoinCounter
 {
     private decimal _totalAmount = 0;
+    private List<string> _badCoins = new();
 
     // valid coin types are:
     // Penny, Nickel, Dime, Quarter, HalfDollar, Dollar
@@ -42,10 +43,43 @@ public class CoinCounter
 
     public void CountCoin(string CoinType)
     {
+        try {
+            switch(CoinType)
+            {
+                case "Penny":
+                    _totalAmount += 0.01M;
+                    break;
+                case "Nickel":
+                    _totalAmount += 0.05M;
+                    break;
+                case "Dime":
+                    _totalAmount += 0.10M;
+                    break;
+                case "Quarter":
+                    _totalAmount += 0.25M;
+                    break;
+                case "HalfDollar":
+                    _totalAmount += 0.50M;
+                    break;
+                case "Dollar":
+                    _totalAmount += 1.00M;
+                    break;
+                default: 
+                    throw new CoinException(CoinType, $"{CoinType} is not a valid coin.");
+            }
+        }
+        catch (CoinException e) 
+        {
+            _badCoins.Add(e.CoinType);
+        }s
     }
 
     public void ListBadCoins()
     {
+        foreach (string badCoin in _badCoins) 
+        {
+            Console.WriteLine(badCoin);
+        }
     }
 
     public decimal Total
@@ -56,4 +90,18 @@ public class CoinCounter
 
 public class CoinException : Exception
 {
+
+    public CoinException () : base () {}
+
+    public CoinException (string message) : base (message) {}
+
+    public CoinException (string message, Exception innerException) : base (message, innerException) {}
+
+    public CoinException (string coinType, string message) 
+    {
+        CoinType = coinType;
+    }
+
+    public string CoinType { get; set; } = "";
+
 }
