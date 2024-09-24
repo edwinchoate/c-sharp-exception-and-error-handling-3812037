@@ -84,3 +84,16 @@ You can access the `InnerException` as a property
 ```C#
 Console.WriteLine(e.InnerException.Message);
 ```
+
+### Best Practices
+
+- Try to prevent the need to throw an exception by proactively handling errors 
+- Don't use exceptions to control the flow of the program 
+- Start with specific exceptions and then move to the more generic ones 
+- Don't catch `System.Exception` directly 
+    - This catches every possible exception (including ones from .NET or the CLR) and that might cause issues 
+- use `finally` for cleanup logic 
+- Exception classes should end with the word "Exception" 
+- Use pre-defined .NET Exception classes when you can
+- Provide the three constructors (above) when creating custom exception classes
+- 
