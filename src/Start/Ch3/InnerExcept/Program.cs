@@ -20,7 +20,16 @@ int IntDivider(int a, int b) {
         return a / b;
     }
     catch (DivideByZeroException e) {
-        LogException(e);
+        try
+        {
+            LogException(e);
+        }
+        catch (FileNotFoundException fnf) 
+        {
+            Console.WriteLine(fnf.Message);
+            if (fnf.InnerException != null) 
+                Console.WriteLine(fnf.InnerException.Message);
+        }
     }
     return 0;
 }
@@ -31,5 +40,6 @@ void LogException(Exception e) {
     }
     catch (FileNotFoundException fnf) {
         Console.WriteLine("Log file doesn't exist!");
+        throw new FileNotFoundException("Exceptions.txt was not found.", e);
     }
 }

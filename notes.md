@@ -71,3 +71,16 @@ public MyException (string message) : base (message)
 public MyException (string message, Exception innerException) : base (message, innerException) 
 ```
 
+### Inner Exceptions
+
+_inner exception_ - the exception that caused another exception to happen. aka nested exceptions.
+
+You can set an `innerException` by using a constructor like this...
+```C#
+throw new Exception("some message", innerException); // this sets Exception.InnerException
+```
+
+You can access the `InnerException` as a property
+```C#
+Console.WriteLine(e.InnerException.Message);
+```
